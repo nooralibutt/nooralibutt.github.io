@@ -1,0 +1,32 @@
+{
+  "data": {
+    "Trending": [
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201%20copy%202.jpg?alt=media&token=36ad0f8c-fce0-48ac-9844-78b566f17725",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201%20copy%203.jpg?alt=media&token=4ebb47bd-9f51-4b0d-b0ed-a015fc423a0c",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201%20copy-1.jpg?alt=media&token=5bf949ed-ea5f-476b-b221-48b55155e27e",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201.jpg?alt=media&token=a6b0439a-b666-4ace-9efc-cdaa41819e6c",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201-2.jpg?alt=media&token=058cac99-e119-460c-9238-7edd02721761",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201-1.jpg?alt=media&token=520308f3-b656-4e41-83c4-4adc8be2ca86",
+      "https://firebasestorage.googleapis.com/v0/b/tap-away-wallpapers.appspot.com/o/Artboard%201%20copy.jpg?alt=media&token=c8757dc8-7c9d-4927-ab55-419cfcd6931f"
+    ]
+  },
+  "ad_settings": {
+    "ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "banner_ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "interstitial_ad_count": 2,
+    "is_ios_approving": false,
+    "is_android_approving": false
+  }
+}
