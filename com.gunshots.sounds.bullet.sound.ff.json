@@ -1,0 +1,56 @@
+{
+  "data": {
+    "Trending": [
+      "https://images.unsplash.com/photo-1582043963563-7e145bd9db07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=705&q=80",
+      "https://images.unsplash.com/photo-1598389759169-4e0c192c6816?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80",
+      "https://i.pinimg.com/564x/c3/9b/14/c39b14d7b5ecf1f5b74ec97831d81328.jpg",
+      "https://i.pinimg.com/564x/f4/b1/93/f4b1930b2096c480fc15972e05fc372f.jpg",
+      "https://i.pinimg.com/564x/a3/be/a9/a3bea95f70aa5d871284ac8958458c25.jpg",
+      "https://i.pinimg.com/564x/65/b1/42/65b14251493d9f43e53912d58815aaf4.jpg",
+      "https://i.pinimg.com/564x/6e/96/35/6e9635d1a40b5ae775ebd8798e45a991.jpg",
+      "https://i.pinimg.com/564x/27/07/7c/27077cef39968d8ac08eaad8945726c0.jpg",
+      "https://i.pinimg.com/564x/bd/cb/a0/bdcba021b13fb8c09a27b07c98720d5b.jpg",
+      "https://i.pinimg.com/564x/99/a3/d7/99a3d733debc7c4966e4456914fc2586.jpg",
+      "https://i.pinimg.com/564x/4f/c0/44/4fc0444fd5d46c60544d712725fb348a.jpg",
+      "https://i.pinimg.com/564x/30/4c/26/304c2630fe0833a32668557df089aaf1.jpg",
+      "https://i.pinimg.com/736x/d0/26/f8/d026f8d88b8e9e95425a20bd1df19511.jpg",
+      "https://i.pinimg.com/564x/0d/65/da/0d65da45e4816ea57a982dc2abf58e45.jpg",
+      "https://i.pinimg.com/564x/04/83/5f/04835f7ed46a7a9a40db120702cf3369.jpg",
+      "https://i.pinimg.com/564x/80/11/97/8011979d0b16ab95677b9039781435c2.jpg",
+      "https://i.pinimg.com/564x/bd/d4/cc/bdd4ccfbadbf71f44103e3a348fe89ff.jpg",
+      "https://i.pinimg.com/564x/72/48/7c/72487c441beef61c76a3f84f59840c77.jpg",
+      "https://i.pinimg.com/736x/47/40/5f/47405ff9007e207f7ed4e996f81eff74.jpg",
+      "https://i.pinimg.com/564x/b8/e0/b4/b8e0b4fdeccac65939aa6eefbcb5e7ac.jpg",
+      "https://i.pinimg.com/564x/b5/c3/90/b5c3909ac43cda953ad400a61ed2a522.jpg",
+      "https://i.pinimg.com/564x/86/33/05/863305df2197c91e73f22b4e38e03973.jpg",
+      "https://i.pinimg.com/564x/b6/91/d1/b691d1d4c27ee33c8e8e13834b531098.jpg",
+      "https://i.pinimg.com/564x/ae/82/38/ae8238a0b0d764b7c9f8ff5d3ede0625.jpg",
+      "https://i.pinimg.com/564x/e7/e3/06/e7e3062380070e9e80a49fa1bceda1d1.jpg",
+      "https://i.pinimg.com/564x/7f/5d/f5/7f5df5c82e12180b4f0c4f5f22dc736e.jpg",
+      "https://i.pinimg.com/564x/21/5b/9b/215b9bc6022b65af2f1251c205b8565d.jpg",
+      "https://i.pinimg.com/564x/86/fb/dc/86fbdcdc89ce6e1f01ee5648f6196ac6.jpg",
+      "https://i.pinimg.com/564x/b3/26/68/b326681ba0a9f21651513dbe994187c6.jpg",
+      "https://i.pinimg.com/564x/fb/0a/c5/fb0ac5249b394889555b7ffacec05941.jpg",
+      "https://i.pinimg.com/564x/58/54/80/58548048a6c7d84f8cc0ccbac6763433.jpg"
+    ]
+  },
+  "ad_settings": {
+    "ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "banner_ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "interstitial_ad_count": 2,
+    "is_ios_approving": false,
+    "is_android_approving": false
+  }
+}
