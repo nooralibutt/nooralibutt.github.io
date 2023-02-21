@@ -1,6 +1,6 @@
 {
   "wallpapers": {
-    "Trending": [
+    "Players": [
       "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/048.jpg",
       "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/047.jpg",
       "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/005.jpg"
@@ -31,7 +31,7 @@
       "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/022.jpg"
     ]
   },
-  "data2": {
+  "approoving_data": {
     "Trending": [
       "https://mfiles.alphacoders.com/631/631666.jpg",
       "https://mfiles.alphacoders.com/582/582571.jpg",
@@ -39,6 +39,9 @@
       "https://mfiles.alphacoders.com/156/156160.jpg"
     ]
   },
+  "chat_levels": {},
+  "presentation_data": {},
+  "quiz_level_categories": {},
   "ad_settings": {
     "ad_priority": [
       "admob",
