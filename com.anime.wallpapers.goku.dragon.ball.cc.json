@@ -1,5 +1,5 @@
 {
-  "data": {
+  "wallpapers": {
     "Trending": [
       "https://i.pinimg.com/564x/bc/00/bf/bc00bf83ad04d4ca9163b237f8f2f848.jpg",
       "https://i.pinimg.com/564x/f2/f9/9b/f2f99b1ecd8481771792313703866c5c.jpg",
@@ -412,6 +412,6 @@
     ],
     "interstitial_ad_count": 5,
     "is_ios_approving": false,
-    "is_android_approving": false
+    "is_android_approving": true
   }
 }
