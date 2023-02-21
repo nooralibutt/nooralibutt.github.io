@@ -1,0 +1,64 @@
+{
+  "wallpapers": {
+    "Players": [
+      "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/048.jpg",
+      "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/047.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/005.jpg"
+    ],
+    "Characters": [
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/002.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/003.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/004.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/005.jpg"
+    ],
+    "Game Play": [
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/019.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/015.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/004.jpg"
+    ],
+    "Guns": [
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/002.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/003.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/005.jpg"
+    ],
+    "Maps": [
+      "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/046.jpg",
+      "https://dl.dir.freefiremobile.com/common/web_event/officialwebsite/wallpapers/mobile/023.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/020.jpg",
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/013.jpg"
+    ],
+    "Vehicles": [
+      "http://freefiremobile-a.akamaihd.net/ffwebsite/images/wallpaper/mobile/022.jpg"
+    ]
+  },
+  "approving_wallpapers": {
+    "Trending": [
+      "https://mfiles.alphacoders.com/631/631666.jpg",
+      "https://mfiles.alphacoders.com/582/582571.jpg",
+      "https://mfiles.alphacoders.com/441/441115.jpg",
+      "https://mfiles.alphacoders.com/156/156160.jpg"
+    ]
+  },
+  "chat_levels": {},
+  "presentation_data": {},
+  "quiz_level_categories": {},
+  "ad_settings": {
+    "ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "banner_ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "interstitial_ad_count": 5,
+    "is_ios_approving": false,
+    "is_android_approving": true
+  }
+}
