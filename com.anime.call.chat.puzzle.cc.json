@@ -1,8 +1,6 @@
 {
-  
   "_app_url_apple": "com.example.anime_call_chat_puzzle",
   "_app_url_play": "com.example.anime_call_chat_puzzle",
-  
   "ad_settings": {
     "ad_priority": [
       "admob",
