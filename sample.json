@@ -42,6 +42,8 @@
     ]
   },
   "presentation_data": {},
+  "quiz_level_categories": {},
+  "chat_levels": {},
   "ad_settings": {
     "ad_priority": [
       "admob",
