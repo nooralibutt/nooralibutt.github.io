@@ -151,6 +151,6 @@
     ],
     "interstitial_ad_count": 5,
     "is_ios_approving": true,
-    "is_android_approving": true
+    "is_android_approving": false
   }
 }
