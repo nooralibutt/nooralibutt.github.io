@@ -1,0 +1,9 @@
+{
+  "_app_url_apple": "hosni-macabando https://apps.apple.com/us/app/evil-escape-scary-game/id1562958277",
+  "_app_url_play": "regent-branding https://play.google.com/store/apps/details?id=com.scary.evil.games.escape",
+  "ad_settings": {
+    "interstitial_ad_count": 2,
+    "is_ios_approving": true,
+    "is_android_approving": true
+  }
+}
