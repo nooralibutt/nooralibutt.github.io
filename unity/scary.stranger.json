@@ -3,7 +3,7 @@
   "_app_url_play": "regent-branding https://play.google.com/store/apps/details?id=hello.scary.stranger.neighbor.home",
   "ad_settings": {
     "interstitial_ad_count": 2,
-    "is_ios_approving": true,
-    "is_android_approving": true
+    "is_ios_approving": false,
+    "is_android_approving": false
   }
 }
