@@ -1,0 +1,22 @@
+{
+  "_app_url_play": "Diamond+Walls+Studio https://play.google.com/store/apps/details?id=com.ethical.hacking.hackers.guide.tricks",
+  "ad_settings": {
+    "ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "banner_ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "interstitial_ad_count": 5,
+    "is_ios_approving": false,
+    "is_android_approving": true
+  }
+}
