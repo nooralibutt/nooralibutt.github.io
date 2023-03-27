@@ -7,7 +7,7 @@
 }
 .bg-image {
   /* The image used */
-  background-image: url("cover.jpg");
+  background-image: url("cover.png");
   
   /* Add the blur effect */
   filter: blur(8px);
