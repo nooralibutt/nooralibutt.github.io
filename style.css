@@ -9,6 +9,21 @@
   height: 100vh;
   width: 100%;
   padding: 90px 0;
+  
+  background-image: url("https://play-lh.googleusercontent.com/JVQ6pDxKU7CL5v9KzYJIWA9_io6bp_T_IxQpV0OvUMYLcFloQ47FOVquMQZgGetFP5kG=w7680-h4320");
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .pic{
   height: auto;
