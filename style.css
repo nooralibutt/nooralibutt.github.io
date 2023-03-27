@@ -13,23 +13,6 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
     align-content: center;
     min-height: 100vh;
 }
-.bg-image {
-  /* The image used */
-  background-image: url("cover.png");
-  
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; 
-}
 .about-us{
   height: 100vh;
   width: 100%;
@@ -39,6 +22,7 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 .pic{
   height: auto;
   width:  302px;
+  border-radius: 50px 20px;
 }
 .about{
   width: 1130px;
