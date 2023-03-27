@@ -5,12 +5,12 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.about-us{
-  height: 100vh;
-  width: 100%;
-  padding: 90px 0;
-  
-  background-image: url("https://play-lh.googleusercontent.com/JVQ6pDxKU7CL5v9KzYJIWA9_io6bp_T_IxQpV0OvUMYLcFloQ47FOVquMQZgGetFP5kG=w7680-h4320");
+body, html {
+  height: 100%;
+}
+.bg-image {
+  /* The image used */
+  background-image: url("cover.png");
   
   /* Add the blur effect */
   filter: blur(8px);
@@ -23,7 +23,19 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+}
+.about-us{
+  height: 100%;
+  width: 100%;
+  padding: 90px 0;
+  
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 .pic{
   height: auto;
@@ -40,6 +52,7 @@
 }
 .text{
   width: 540px;
+  color: white;
 }
 .text h2{
   font-size: 90px;
@@ -53,7 +66,7 @@
   margin-bottom: 20px;
 }
 span{
-  color: #4070f4;
+  color: #F2E44B;
 }
 .text p{
   font-size: 18px;
