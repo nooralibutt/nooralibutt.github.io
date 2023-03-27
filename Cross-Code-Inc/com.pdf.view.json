@@ -1,5 +1,6 @@
-
 {
+  "_app_url_apple": "com.example.pdf.view",
+  "_app_url_play": "com.example.pdf.view",
   "ad_settings": {
     "ad_priority": [
       "admob",
