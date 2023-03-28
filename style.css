@@ -39,19 +39,21 @@ body, html {
 }
 .pic{
   height: auto;
-  width:  302px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  width:  250px;
   border-radius: 50px 20px;
 }
 .about{
-  width: 1130px;
-  max-width: 85%;
+  width: 75%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 .text{
-  width: 540px;
   color: white;
 }
 .text h2{
