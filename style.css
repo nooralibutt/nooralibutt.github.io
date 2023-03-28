@@ -75,8 +75,10 @@ span{
 }
 .data{
   margin-top: 30px;
+  display: flex;
 }
-.hire{
+.btn-primary{
+  margin-left: 8px;
   font-size: 18px;
   background: #4070f4;
   color: #fff;
@@ -86,7 +88,11 @@ span{
   border-radius: 6px;
   transition: 0.5s;
 }
-.hire:hover{
-  background: #000;
-  border: 1px solid #4070f4;
+.btn-primary:hover{
+  background: #0055dd;
+   color: #fff;
+   transition: 0.5s;
+}
+.btn-primary:focus {
+    box-shadow: 0 0 0 5px rgba(0, 85, 255, 0.5)
 }
