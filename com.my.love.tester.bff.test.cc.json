@@ -3,17 +3,17 @@
   "_app_url_play": "Diamond+Walls+Studio https://play.google.com/store/apps/details?id=com.my.love.tester.bff.test.cc",
   "ad_settings": {
     "ad_priority": [
-      "admob",
       "facebook",
       "unity",
       "appLovin",
+      "admob",
       "any"
     ],
     "banner_ad_priority": [
-      "admob",
       "facebook",
       "unity",
       "appLovin",
+      "admob",
       "any"
     ],
     "interstitial_ad_count": 5,
