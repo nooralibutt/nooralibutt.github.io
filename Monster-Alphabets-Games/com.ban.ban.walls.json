@@ -1,4 +1,6 @@
 {
+  "_app_url_apple": "com.example.demo1",
+  "_app_url_play": "com.example.demo1",
   "ad_settings": {
     "ad_priority": [
       "admob",
