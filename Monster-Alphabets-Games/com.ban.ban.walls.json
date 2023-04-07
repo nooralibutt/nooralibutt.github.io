@@ -1,4 +1,24 @@
 {
+  "wallpapers": {
+    "Ban Ben": [
+      "https://i5.walmartimages.com/asr/097ed7c7-bee0-4ccd-b913-8a8063494336.f05f94f6194a430f625a187c9889d7a2.jpeg",
+      "https://ih1.redbubble.net/image.4870348242.4902/st,small,507x507-pad,600x600,f8f8f8.jpg",
+      "https://is2-ssl.mzstatic.com/image/thumb/Purple123/v4/40/df/9e/40df9e59-61b2-66a1-13c8-2a63f2f83ec0/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "https://m.media-amazon.com/images/I/71ZLeZ-ISxL._AC_SL1500_.jpg",
+      "https://i5.walmartimages.com/asr/097ed7c7-bee0-4ccd-b913-8a8063494336.f05f94f6194a430f625a187c9889d7a2.jpeg",
+      "https://ih1.redbubble.net/image.4870348242.4902/st,small,507x507-pad,600x600,f8f8f8.jpg"
+    ]
+  },
+  "approving_wallpapers": {
+    "Trending": [
+      "https://i5.walmartimages.com/asr/097ed7c7-bee0-4ccd-b913-8a8063494336.f05f94f6194a430f625a187c9889d7a2.jpeg",
+      "https://ih1.redbubble.net/image.4870348242.4902/st,small,507x507-pad,600x600,f8f8f8.jpg",
+      "https://is2-ssl.mzstatic.com/image/thumb/Purple123/v4/40/df/9e/40df9e59-61b2-66a1-13c8-2a63f2f83ec0/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "https://m.media-amazon.com/images/I/71ZLeZ-ISxL._AC_SL1500_.jpg",
+      "https://i5.walmartimages.com/asr/097ed7c7-bee0-4ccd-b913-8a8063494336.f05f94f6194a430f625a187c9889d7a2.jpeg",
+      "https://ih1.redbubble.net/image.4870348242.4902/st,small,507x507-pad,600x600,f8f8f8.jpg"
+    ]
+  },
   "_app_url_apple": "com.example.demo1",
   "_app_url_play": "com.example.demo1",
   "ad_settings": {
