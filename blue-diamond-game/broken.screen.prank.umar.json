@@ -1,0 +1,39 @@
+{
+  "_app_url_apple": "com.example.broken_screen_umar_2023",
+  "_app_url_play": "com.example.broken_screen_umar_2023",
+  "wallpapers": {
+    "crack wallpapers": [
+      "https://i.pinimg.com/originals/c1/a7/ae/c1a7aeb442454ce0cfe9e4f893235e9a.jpg",
+      "https://w0.peakpx.com/wallpaper/938/721/HD-wallpaper-iphone-2018-android-graphic-new-wonderful.jpg",
+      "https://w0.peakpx.com/wallpaper/634/280/HD-wallpaper-crack-punch-hole-broken-cracked-glass-screen-shattered.jpg",
+      "https://w0.peakpx.com/wallpaper/694/901/HD-wallpaper-cracked-screen-realistic-cracked-screen.jpg",
+      "https://i.pinimg.com/736x/b0/a0/a0/b0a0a09c37576a0a7c0085284fa5243e.jpg",
+      "https://wallpapercave.com/wp/wp7790060.jpg",
+      "https://w0.peakpx.com/wallpaper/278/249/HD-wallpaper-broken-screen-cracked-cracks-glass-glitch-illusion-pixels-scratches.jpg",
+      "https://www.nawpic.com/media/2020/cracked-screen-nawpic-72-e1665342607565.jpg",
+      "https://w0.peakpx.com/wallpaper/1008/842/HD-wallpaper-hacked-and-craked-you-cracked-your-phone-you-got-haked.jpg",
+      "https://i.pinimg.com/474x/43/c4/84/43c4841ec10a6783b29c5026858c4b43.jpg",
+      "https://w0.peakpx.com/wallpaper/356/983/HD-wallpaper-broken-screen-amoled-broma-iphone-joke-phone-prank-samsung.jpg",
+      "https://www.nawpic.com/media/2020/broken-screen-nawpic-27-e1639766563211.jpg"
+    ]
+  },
+  "ad_settings": {
+    "ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "banner_ad_priority": [
+      "admob",
+      "facebook",
+      "unity",
+      "appLovin",
+      "any"
+    ],
+    "interstitial_ad_count": 5,
+    "is_ios_approving": false,
+    "is_android_approving": true
+  }
+}
