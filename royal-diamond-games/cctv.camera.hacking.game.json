@@ -1,0 +1,23 @@
+{
+   "_app_url_apple":"com.example.camera_hacking_hanzla_23",
+   "_app_url_play":"com.example.camera_hacking_hanzla_23",
+   "ad_settings":{
+      "ad_priority":[
+         "admob",
+         "facebook",
+         "unity",
+         "appLovin",
+         "any"
+      ],
+      "banner_ad_priority":[
+         "admob",
+         "facebook",
+         "unity",
+         "appLovin",
+         "any"
+      ],
+      "interstitial_ad_count":5,
+      "is_ios_approving":false,
+      "is_android_approving":true
+   }
+}
