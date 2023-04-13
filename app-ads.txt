@@ -54,7 +54,9 @@ e-planning.net, e1028cf4f3301b90, RESELLER, c1ba615865ed87b2
 exchange.admazing.co, AM3, RESELLER
 facebook.com, 173852817634049, DIRECT, c3e20eee3f780d68
 facebook.com, 395715622566779, DIRECT, c3e20eee3f780d68
+facebook.com, 825567885407114, DIRECT, c3e20eee3f780d68
 google.com, pub-9242774733998901, RESELLER
+google.com, pub-5437120912642629, DIRECT, f08c47fec0942fa0
 google.com, pub-9376647217016516, DIRECT, f08c47fec0942fa0
 google.com, pub-4261801828815757, DIRECT, f08c47fec0942fa0
 improvedigital.com, 1366, RESELLER
@@ -404,3 +406,26 @@ yahoo.com, 59627, RESELLER
 yandex.com, 95746987, RESELLER
 yeahmobi.com, 15984, RESELLER
 yeahmobi.com, 5135224, RESELLER
+admanmedia.com, 990, RESELLER
+markappmedia.site, 322972, RESELLER
+yahoo.com, 60013, RESELLER, e1a5b5b6e3255540
+freewheel.tv, 1568906, RESELLER
+freewheel.tv, 1568907, RESELLER
+adform.com, 2904, RESELLER
+orangeclickmedia.com, hgu2t0onqs874x95, RESELLER
+inmobi.com, 3a4f7da341dd490cbb7dde02b126275e, RESELLER, 83e75a7ae333ca9d
+adform.com, 2671, RESELLER
+yieldmo.com, 2807970144171533194, RESELLER
+conversantmedia.com, 100308, RESELLER, 03113cd04947736d
+criteo.com, B-063105, RESELLER, 9fac4a4a87c2a44f
+contextweb.com, 561913, RESELLER, 89ff185a4c4e857c
+axonix.com, 57869, RESELLER
+themediagrid.com, A8X5S7, RESELLER, 35d5010d7789b49d
+yahoo.com, 59674, RESELLER, e1a5b5b6e3255540
+freewheel.tv, 1235183, RESELLER
+freewheel.tv, 1235279, RESELLER
+triplelift.com, 11656, RESELLER, 6c33edb13117fd86
+google.com, pub-6346866704322274, RESELLER, f08c47fec0942fa0
+google.com, pub-3565385483761681, RESELLER, f08c47fec0942fa0
+google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0
+lunamedia.io, a49272ae78e0ed4beb713268644928f0, RESELLER, 524ecb396915caaf
