@@ -1,8 +1,8 @@
 {
     "_app_url_apple": "regent-branding https://apps.apple.com/us/app/deer-hunter-marksman-2023/id1166866766",
     "ad_settings": {
-      "interstitial_ad_count": 4,
-      "is_ios_approving": true
+      "interstitial_ad_count": 1,
+      "is_ios_approving": false
     }
   }
   
