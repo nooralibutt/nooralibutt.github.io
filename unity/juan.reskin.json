@@ -3,7 +3,7 @@
   "_app_url_play": "dragon-dino https://play.google.com/store/apps/details?id=com.scary.juan.talking.cat.game",
   "ad_settings": {
     "interstitial_ad_count": 2,
-    "is_ios_approving": false,
+    "is_ios_approving": true,
     "is_android_approving": true
   }
 }
