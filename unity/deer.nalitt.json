@@ -1,7 +1,7 @@
 {
     "_app_url_apple": "noor-ali-butt https://apps.apple.com/bs/app/big-buck-archery-hunter/id1167020055",
     "ad_settings": {
-      "interstitial_ad_count": 3,
-      "is_ios_approving": true
+      "interstitial_ad_count": 1,
+      "is_ios_approving": false
     }
   }
