@@ -1,16 +1,14 @@
 {
    "ad_priority":[
-      "admob",
-      "facebook",
       "unity",
       "appLovin",
+      "facebook",
       "any"
    ],
    "banner_ad_priority":[
-      "admob",
-      "facebook",
       "unity",
       "appLovin",
+      "facebook",
       "any"
    ],
    "interstitial_ad_count":100,
