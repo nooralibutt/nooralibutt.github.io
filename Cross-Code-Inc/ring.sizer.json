@@ -17,7 +17,7 @@
       "any"
     ],
     "interstitial_ad_count": 1,
-    "is_ios_approving": true,
+    "is_ios_approving": false,
     "is_android_approving": false
   }
 }
