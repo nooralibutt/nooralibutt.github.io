@@ -2,14 +2,12 @@
    "_app_url_play":"kitchen-food-scale https://play.google.com/store/apps/details?id=com.weight.tracker.reskin.kitchen.food.scale.cc",
    "ad_settings":{
       "ad_priority":[
-         "admob",
          "facebook",
          "unity",
          "appLovin",
          "any"
       ],
       "banner_ad_priority":[
-         "admob",
          "facebook",
          "unity",
          "appLovin",
