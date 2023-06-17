@@ -1,8 +1,8 @@
 {
   "_app_url_apple": "noor-ali-butt https://apps.apple.com/ie/app/jurassic-dinosaur-sod-dragon/id1053173072",
   "ad_settings": {
-    "interstitial_ad_count": 5,
-    "is_ios_approving": true
+    "interstitial_ad_count": 1,
+    "is_ios_approving": false
   }
 }
   
