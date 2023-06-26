@@ -1,0 +1,22 @@
+{
+   "_app_url_play":"toptel-inc https://play.google.com/store/apps/details?id=com.weight.calibration.kitchen.food.scale.cc",
+   "ad_settings":{
+      "ad_priority":[
+         "admob",
+         "unity",
+         "facebook",
+         "appLovin",
+         "any"
+      ],
+      "banner_ad_priority":[
+         "admob",
+         "unity",
+         "facebook",
+         "appLovin",
+         "any"
+      ],
+      "interstitial_ad_count":5,
+      "is_ios_approving":false,
+      "is_android_approving":true
+   }
+}
