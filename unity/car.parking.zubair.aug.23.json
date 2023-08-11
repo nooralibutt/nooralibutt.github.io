@@ -1,0 +1,9 @@
+{
+  "_app_url_apple": "https://itunes.apple.com/app/id1168297633",
+  "_app_url_play": "https://play.google.com/store/apps/details?id=com.car.parking.car.driving.rebel.car.x",
+  "ad_settings": {
+    "interstitial_ad_count": 2,
+    "is_ios_approving": false,
+    "is_android_approving": false
+  }
+}
