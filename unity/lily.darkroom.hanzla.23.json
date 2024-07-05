@@ -1,8 +1,8 @@
 {
   "_app_url_apple": "",
   "ad_settings": {
-    "interstitial_ad_count": 20,
-    "is_ios_approving": true,
+    "interstitial_ad_count": 1,
+    "is_ios_approving": false,
     "is_android_approving": true
   }
 }
