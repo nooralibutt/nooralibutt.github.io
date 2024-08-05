@@ -388,8 +388,8 @@
       "any"
     ],
     "is_enable_banner_ad": false,
-    "interstitial_ad_count": 200,
+    "interstitial_ad_count": 4,
     "is_ios_approving": false,
-    "is_android_approving": true
+    "is_android_approving": false
   }
 }
