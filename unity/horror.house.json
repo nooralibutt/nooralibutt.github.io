@@ -3,7 +3,7 @@
   "_app_url_play": "regent-branding https://play.google.com/store/apps/details?id=com.scary.evil.games.escape",
   "ad_settings": {
     "interstitial_ad_count": 1,
-    "is_ios_approving": false,
+    "is_ios_approving": true,
     "is_android_approving": false
   }
 }
