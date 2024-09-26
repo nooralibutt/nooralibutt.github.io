@@ -2,21 +2,21 @@
     "_app_url_apple": "",
     "cross_promo": [
         {
-                "name": "Lilly Dark Room",
-                "link": "https://apps.apple.com/ae/app/lilys-darkroom-1/id6474727813",
-                "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/3d/35/5a3d3530-8227-f5de-71ba-403ef96c1d3c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/300x300bb.jpg",
-                "isBanner": true,
-                "platform": "ios"
-                "active": true
-            },
+            "name": "Lilly Dark Room",
+            "link": "https://apps.apple.com/ae/app/lilys-darkroom-1/id6474727813",
+            "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/3d/35/5a3d3530-8227-f5de-71ba-403ef96c1d3c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/300x300bb.jpg",
+            "isBanner": true,
+            "platform": "ios",
+            "active": true
+        },
         {
-                "name": "Lilly Dark Room",
-                "link": "https://play.google.com/store/apps/details?id=hello.scary.stranger.neighbor.home",
-                "imageUrl": "https://lh3.googleusercontent.com/B7beYLbDoyQfNBos0Q4FWVDFVZMo2RGoNPcqs1hqSNSL_Lk0iE5qVU46lrT6tIJWsLOz8ZoWLUUPaLARntqH-d1omqD6j_s0lmUzng=h200-rw",
-                "isBanner": false,
-                "platform": "android"
-                "active": true
-            }
+            "name": "Lilly Dark Room",
+            "link": "https://play.google.com/store/apps/details?id=hello.scary.stranger.neighbor.home",
+            "imageUrl": "https://lh3.googleusercontent.com/B7beYLbDoyQfNBos0Q4FWVDFVZMo2RGoNPcqs1hqSNSL_Lk0iE5qVU46lrT6tIJWsLOz8ZoWLUUPaLARntqH-d1omqD6j_s0lmUzng=h200-rw",
+            "isBanner": false,
+            "platform": "android",
+            "active": true
+        }
     ],
     "ad_settings": {
         "interstitial_ad_count": 1,
