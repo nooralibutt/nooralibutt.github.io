@@ -1,8 +1,31 @@
 {
-  "_app_url_apple": "",
-  "ad_settings": {
-    "interstitial_ad_count": 1,
-    "is_ios_approving": false,
-    "is_android_approving": false
-  }
+    "_app_url_apple": "",
+    "cross_promo": {
+        "android": [],
+        "ios": [
+            {
+                "gameName": "Lilly Dark Room",
+                "storeLink": "https://apps.apple.com/ae/app/lilys-darkroom-1/id6474727813",
+                "imageUrls": [
+                    "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/3d/35/5a3d3530-8227-f5de-71ba-403ef96c1d3c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/300x300bb.jpg"
+                ],
+                "type": "banner",
+                "active": true
+            },
+            {
+                "gameName": "",
+                "storeLink": "",
+                "imageUrls": [
+                    ""
+                ],
+                "type": "interstitial",
+                "active": false
+            }
+        ]
+    },
+    "ad_settings": {
+        "interstitial_ad_count": 1,
+        "is_ios_approving": false,
+        "is_android_approving": false
+    }
 }
