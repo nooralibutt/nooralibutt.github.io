@@ -5,16 +5,24 @@
             "name": "Lilly Dark Room",
             "androidLink": "",
             "iosLink": "https://apps.apple.com/ae/app/lilys-darkroom-1/id6474727813",
-            "imageUrl": "https://www.imghost.net/ib/THfQM2SDdmP7RQ8_1727418890.png",
-            "isBanner": true,
+            "bannerImageUrl": "https://www.imghost.net/ib/THfQM2SDdmP7RQ8_1727418890.png",
+            "interstitialImageUrl": "",
+            "active": true
+        },
+        {
+            "name": "Witchers Island",
+            "androidLink": "",
+            "iosLink": "https://apps.apple.com/ae/app/evil-island-scary-game-2/id6459886005",
+            "bannerImageUrl": "https://www.imghost.net/ib/bx2SaEGxwgrR4US_1727422272.png",
+            "interstitialImageUrl": "",
             "active": true
         },
         {
             "name": "Hello Neighbour",
             "iosLink": "",
             "androidLink": "https://play.google.com/store/apps/details?id=hello.scary.stranger.neighbor.home",
-            "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/43/5c/1c/435c1c5e-87ab-d6d0-8f6b-aa539458242c/3a9eb4ab-6dbf-46dc-b7a0-13fe3c77a042_6.5-1.png/626x0w.png",
-            "isBanner": false,
+            "bannerImageUrl": "",
+            "interstitialImageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/43/5c/1c/435c1c5e-87ab-d6d0-8f6b-aa539458242c/3a9eb4ab-6dbf-46dc-b7a0-13fe3c77a042_6.5-1.png/626x0w.png",
             "active": true
         }
     ],
