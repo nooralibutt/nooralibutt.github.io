@@ -2,6 +2,14 @@
     "_app_url_apple": "",
     "cross_promo": [
         {
+            "name": "Evil Escape",
+            "androidLink": "",
+            "iosLink": "https://apps.apple.com/us/app/evil-escape-scary-game/id1562958277",
+            "bannerImageUrl": "https://www.imghost.net/ib/UbFwI5npAMq2Npb_1727705070.png",
+            "interstitialImageUrl": "",
+            "active": true
+        },
+        {
             "name": "Lilly Dark Room",
             "androidLink": "",
             "iosLink": "https://apps.apple.com/ae/app/lilys-darkroom-1/id6474727813",
