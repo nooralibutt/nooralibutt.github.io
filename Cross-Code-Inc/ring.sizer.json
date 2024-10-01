@@ -14,7 +14,7 @@
       "appLovin",
       "any"
     ],
-    "interstitial_ad_count": 20,
+    "interstitial_ad_count": 100,
     "is_ios_approving": true,
     "is_android_approving": true
   }
