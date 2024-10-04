@@ -3,16 +3,16 @@
   "_app_url_play": "",
   "ad_priority": [
     "admob",
-    "facebook",
     "unity",
     "appLovin",
+    "facebook",
     "any"
   ],
   "banner_ad_priority": [
     "admob",
-    "facebook",
     "unity",
     "appLovin",
+    "facebook",
     "any"
   ],
   "interstitial_ad_count": 5,
