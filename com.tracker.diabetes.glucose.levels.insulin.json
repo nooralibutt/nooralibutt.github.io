@@ -15,10 +15,10 @@
    ],
    "interstitial_ad_count": 2,
    "is_ios_approving": false,
-   "is_android_approving": false,
+   "is_android_approving": true,
    "min_version_for_post":"26.4.9",
-   "is_community_enabled": true,
+   "is_community_enabled": false,
    "is_receipt_verification_enabled": true,
-   "is_connections_enabled": true
+   "is_connections_enabled": false
 
 }
