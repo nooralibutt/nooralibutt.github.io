@@ -19,6 +19,7 @@
    "min_version_for_post":"26.4.9",
    "is_community_enabled": false,
    "is_receipt_verification_enabled": true,
-   "is_connections_enabled": false
+   "is_connections_enabled": false,
+   "is_promo_service_enabled": true
 
 }
