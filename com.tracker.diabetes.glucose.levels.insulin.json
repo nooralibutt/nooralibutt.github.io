@@ -14,7 +14,7 @@
       "any"
    ],
    "interstitial_ad_count": 2,
-   "is_ios_approving": false,
+   "is_ios_approving": true,
    "is_android_approving": true,
    "min_version_for_post":"26.4.9",
    "is_community_enabled": false,
