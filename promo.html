@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promo Code Generator</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(22, 30, 46, 0.75);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.4);
+      --accent: #a855f7;
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 2.5rem 1rem;
+      perspective: 1000px;
+    }
+
+    /* Animated 3D Glow Orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: 0;
+      animation: float 12s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 350px;
+      height: 350px;
+      background: #4f46e5;
+      top: -10%;
+      left: -10%;
+      opacity: 0.5;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: #9333ea;
+      bottom: -15%;
+      right: -10%;
+      opacity: 0.4;
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(60px, 40px) scale(1.1); }
+    }
+
+    /* 3D Glass Container */
+    .container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.5rem;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.56),
+        0 18px 36px -18px rgba(0, 0, 0, 0.72),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out, max-width 0.2s ease-out;
+    }
+
+    @media (min-width: 860px) {
+      .container {
+        max-width: 840px;
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4rem;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-glow);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.95rem;
+      margin-top: 0.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Result Display Card */
+    .result-box {
+      margin-top: 1.75rem;
+      padding: 1.25rem;
+      background: rgba(10, 15, 28, 0.7);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-title {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .code-display {
+      font-family: 'JetBrains Mono', monospace, monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #38bdf8;
+      letter-spacing: 0.08em;
+      word-break: break-all;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      margin-top: 0;
+      box-shadow: none;
+      width: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: none;
+      transform: none;
+    }
+
+    .error-text {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      display: none;
+      text-align: center;
+    }
+
+    .panels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .panel {
+      min-width: 0;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      background: var(--border);
+      height: 1px;
+    }
+
+    .divider span {
+      padding: 0 0.75rem;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 860px) {
+      .panels {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2rem;
+      }
+
+      .panel {
+        flex: 1;
+      }
+
+      .divider {
+        flex-direction: column;
+      }
+
+      .divider::before,
+      .divider::after {
+        width: 1px;
+        height: auto;
+      }
+
+      .divider span {
+        padding: 0.75rem 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+    }
+
+    .decode-result {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: rgba(10, 15, 28, 0.7);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      display: none;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    .decode-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .decode-row + .decode-row {
+      border-top: 1px solid var(--border);
+    }
+
+    .decode-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .decode-value {
+      font-family: 'JetBrains Mono', monospace, monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .decode-value.expired {
+      color: #f87171;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="container" id="card">
+    <div class="header">
+      <h1>Promo Generator</h1>
+      <p>Issue an encrypted unlock key for a user</p>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <form id="promoForm">
+          <div class="form-group">
+            <label for="userId">User ID</label>
+            <input type="text" id="userId" placeholder="e.g., user_987xYz9" required minlength="4">
+          </div>
+
+          <div class="form-group">
+            <label for="endDate">Expiry Date</label>
+            <input type="date" id="endDate" required>
+          </div>
+
+          <button type="submit">Generate Promo Code</button>
+          <div class="error-text" id="error"></div>
+        </form>
+
+        <div class="result-box" id="resultBox">
+          <div class="result-title">Generated Promo Code</div>
+          <div class="code-display" id="codeOutput">---</div>
+          <button class="copy-btn" id="copyBtn" type="button">
+            📋 Copy to Clipboard
+          </button>
+        </div>
+      </div>
+
+      <div class="divider"><span>Decode a code</span></div>
+
+      <div class="panel">
+        <form id="decodeForm">
+          <div class="form-group">
+            <label for="codeInput">Promo Code</label>
+            <input type="text" id="codeInput" placeholder="e.g., M0aq82fvnt" required>
+          </div>
+
+          <button type="submit">Decode Code</button>
+          <div class="error-text" id="decodeError"></div>
+        </form>
+
+        <div class="decode-result" id="decodeResult">
+          <div class="decode-row">
+            <span class="decode-label">User ID (last 4)</span>
+            <span class="decode-value" id="decodedLast4">---</span>
+          </div>
+          <div class="decode-row">
+            <span class="decode-label">Expiry Date</span>
+            <span class="decode-value" id="decodedEnd">---</span>
+          </div>
+          <div class="decode-row">
+            <span class="decode-label">Status</span>
+            <span class="decode-value" id="decodedStatus">---</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration matching PromoService.dart
+    const PREFIX = 'M';
+    const XOR_MASK = 0x1A2B3C4D5n; // must fit within 45 bits (21 + 14 + 10) — BigInt to match Dart's int
+    const PAYLOAD_LEN = 9; // base36 chars needed for 45 bits
+    const MAX_DAYS = 16383; // 14 bits: covers till 2068-11-08 (well past 2050)
+    const CHECKSUM_MASK = 0x3FFn; // 10 bits
+    const CHECKSUM_SALT = 0x9E3779B1n; // arbitrary odd constant (mixing salt)
+    const EPOCH = new Date(2024, 0, 1); // Jan 1, 2024 (local, matches Dart's DateTime(2024, 1, 1))
+
+    // Interactive 3D Card Tilt Effect
+    const card = document.getElementById('card');
+    document.addEventListener('mousemove', (e) => {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+
+    // Helper: parse a base36 string into a BigInt (mirrors Dart's int.parse(str, radix: 36))
+    function base36ToBigInt(str) {
+      const digits = '0123456789abcdefghijklmnopqrstuvwxyz';
+      let result = 0n;
+      for (const ch of str.toLowerCase()) {
+        const idx = digits.indexOf(ch);
+        if (idx === -1) {
+          throw new Error(`Invalid base36 character: ${ch}`);
+        }
+        result = result * 36n + BigInt(idx);
+      }
+      return result;
+    }
+
+    // Derives a 10-bit checksum from last4Val + days (mirrors Dart's _checksum()).
+    // Used to detect tampering: if any character of the code is edited, the
+    // decoded last4/days almost certainly won't match the embedded checksum.
+    function checksum(last4Val, days) {
+      let h = (last4Val * 2654435761n) ^ (days * 40503n) ^ CHECKSUM_SALT;
+      h ^= (h >> 15n);
+      return h & CHECKSUM_MASK;
+    }
+
+    // Generator matching PromoService.generateCode()
+    // Uses BigInt throughout since the packed value reaches 45 bits, which
+    // exceeds JS's native 32-bit bitwise operator range, and the checksum's
+    // intermediate multiplication is near the edge of Number's safe range.
+    function generateCode(userId, expiryDate) {
+      if (userId.length < 4) {
+        throw new Error('userId must be at least 4 characters');
+      }
+
+      const last4 = userId.substring(userId.length - 4).toUpperCase();
+
+      // Calculate days difference from epoch
+      const diffTime = expiryDate.getTime() - EPOCH.getTime();
+      const daysNum = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      if (daysNum < 0 || daysNum > MAX_DAYS) {
+        throw new Error(`Expiry date must be between Jan 1, 2024 and day ${MAX_DAYS} after that (~2068)`);
+      }
+
+      const last4Val = base36ToBigInt(last4); // 0..36^4-1, fits 21 bits
+      const days = BigInt(daysNum);
+      const check = checksum(last4Val, days); // 10 bits
+
+      let packed = (last4Val << 24n) | (days << 10n) | check; // 21+14+10 = 45 bits
+      packed ^= XOR_MASK;
+
+      const payload = packed.toString(36).padStart(PAYLOAD_LEN, '0');
+      return PREFIX + payload;
+    }
+
+    // Decoder matching PromoService.decode() — useful for verifying codes client-side too
+    function decodeCode(code) {
+      if (!code || code[0].toUpperCase() !== PREFIX) {
+        throw new Error('Invalid prefix');
+      }
+
+      const payload = code.substring(PREFIX.length);
+      if (payload.length !== PAYLOAD_LEN) {
+        throw new Error('Malformed code');
+      }
+
+      let packed = base36ToBigInt(payload);
+      packed ^= XOR_MASK;
+
+      const check = packed & CHECKSUM_MASK; // low 10 bits
+      const days = (packed >> 10n) & 0x3FFFn; // next 14 bits
+      const last4Val = packed >> 24n; // remaining bits
+
+      if (checksum(last4Val, days) !== check) {
+        throw new Error('Invalid code (tampered or corrupted)');
+      }
+
+      const last4 = last4Val.toString(36).toUpperCase().padStart(4, '0');
+      const end = new Date(EPOCH.getTime() + Number(days) * 24 * 60 * 60 * 1000);
+
+      return { last4, end };
+    }
+
+    // DOM Interaction Handlers
+    const form = document.getElementById('promoForm');
+    const resultBox = document.getElementById('resultBox');
+    const codeOutput = document.getElementById('codeOutput');
+    const copyBtn = document.getElementById('copyBtn');
+    const errorDiv = document.getElementById('error');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      errorDiv.style.display = 'none';
+
+      const userId = document.getElementById('userId').value.trim();
+      const endDateVal = document.getElementById('endDate').value;
+
+      if (!endDateVal) return;
+
+      try {
+        // Build the date from local parts (input value is "YYYY-MM-DD").
+        // new Date(string) parses as UTC, which can shift by a day vs. the
+        // local EPOCH depending on the browser's timezone offset.
+        const [y, m, d] = endDateVal.split('-').map(Number);
+        const endDate = new Date(y, m - 1, d);
+        const code = generateCode(userId, endDate);
+
+        codeOutput.textContent = code;
+        resultBox.style.display = 'block';
+      } catch (err) {
+        errorDiv.textContent = err.message;
+        errorDiv.style.display = 'block';
+        resultBox.style.display = 'none';
+      }
+    });
+
+    copyBtn.addEventListener('click', () => {
+      const code = codeOutput.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        copyBtn.textContent = '✓ Copied!';
+        setTimeout(() => copyBtn.textContent = '📋 Copy to Clipboard', 2000);
+      });
+    });
+
+    // Decode form handler
+    const decodeForm = document.getElementById('decodeForm');
+    const decodeResult = document.getElementById('decodeResult');
+    const decodedLast4 = document.getElementById('decodedLast4');
+    const decodedEnd = document.getElementById('decodedEnd');
+    const decodedStatus = document.getElementById('decodedStatus');
+    const decodeErrorDiv = document.getElementById('decodeError');
+
+    decodeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      decodeErrorDiv.style.display = 'none';
+      decodeResult.style.display = 'none';
+
+      const rawCode = document.getElementById('codeInput').value.trim();
+      if (!rawCode) return;
+
+      try {
+        const { last4, end } = decodeCode(rawCode);
+        const isExpired = new Date() >= end;
+
+        decodedLast4.textContent = last4;
+        decodedEnd.textContent = end.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+        decodedStatus.textContent = isExpired ? 'Expired' : 'Active';
+        decodedStatus.classList.toggle('expired', isExpired);
+
+        decodeResult.style.display = 'block';
+      } catch (err) {
+        decodeErrorDiv.textContent = err.message;
+        decodeErrorDiv.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
