@@ -384,7 +384,7 @@
         <form id="decodeForm">
           <div class="form-group">
             <label for="codeInput">Promo Code</label>
-            <input type="text" id="codeInput" placeholder="e.g., M0aq82fvnt" required>
+            <input type="text" id="codeInput" placeholder="e.g., M0AQ82FVNT" required>
           </div>
 
           <button type="submit">Decode Code</button>
@@ -476,7 +476,7 @@
       let packed = (last4Val << 24n) | (days << 10n) | check; // 21+14+10 = 45 bits
       packed ^= XOR_MASK;
 
-      const payload = packed.toString(36).padStart(PAYLOAD_LEN, '0');
+      const payload = packed.toString(36).padStart(PAYLOAD_LEN, '0').toUpperCase();
       return PREFIX + payload;
     }
 
