@@ -1,589 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promo Code Generator</title>
-  <style>
-    :root {
-      --bg: #090d16;
-      --card-bg: rgba(22, 30, 46, 0.75);
-      --primary: #6366f1;
-      --primary-glow: rgba(99, 102, 241, 0.4);
-      --accent: #a855f7;
-      --text: #f8fafc;
-      --text-dim: #94a3b8;
-      --border: rgba(255, 255, 255, 0.1);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Promo Code Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5F0;
+    --paper-raised:#FFFFFF;
+    --ink:#201F1B;
+    --ink-soft:#5B5849;
+    --line:#DAD5C8;
+    --teal:#12524B;
+    --teal-deep:#0B3733;
+    --amber:#D98E3B;
+    --amber-deep:#B36F22;
+    --danger:#B3432B;
+    --radius-panel: 4px;
+    --radius-chip: 999px;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper:#1B1A17;
+      --paper-raised:#242320;
+      --ink:#F2EFE7;
+      --ink-soft:#B8B3A2;
+      --line:#3A382F;
+      --teal:#4FB3A3;
+      --teal-deep:#7FCFC1;
+      --amber:#E8A75A;
+      --amber-deep:#F0BC7E;
     }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1B1A17;
+    --paper-raised:#242320;
+    --ink:#F2EFE7;
+    --ink-soft:#B8B3A2;
+    --line:#3A382F;
+    --teal:#4FB3A3;
+    --teal-deep:#7FCFC1;
+    --amber:#E8A75A;
+    --amber-deep:#F0BC7E;
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    padding:32px 20px 64px;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+  }
+  header.page-head{
+    margin-bottom:28px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-optical-sizing:auto;
+    font-size:clamp(28px,4vw,38px);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:60ch;
+    line-height:1.5;
+  }
 
-    body {
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding: 2.5rem 1rem;
-      perspective: 1000px;
-    }
+  .grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  @media (max-width: 860px){
+    .grid{ grid-template-columns: 1fr; }
+  }
 
-    /* Animated 3D Glow Orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      z-index: 0;
-      animation: float 12s infinite alternate ease-in-out;
-    }
+  .panel{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-panel);
+    padding:24px;
+  }
+  .panel + .panel{ margin-top:20px; }
 
-    .orb-1 {
-      width: 350px;
-      height: 350px;
-      background: #4f46e5;
-      top: -10%;
-      left: -10%;
-      opacity: 0.5;
-    }
+  .field-label{
+    display:block;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  .field-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .field-row:last-child{ margin-bottom:0; }
 
-    .orb-2 {
-      width: 400px;
-      height: 400px;
-      background: #9333ea;
-      bottom: -15%;
-      right: -10%;
-      opacity: 0.4;
-      animation-delay: -6s;
-    }
+  input[type=text], input[type=date]{
+    flex:1;
+    min-width:0;
+    font-family:inherit;
+    font-size:15px;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  input[type=text]:focus, input[type=date]:focus{
+    outline:2px solid var(--teal);
+    outline-offset:1px;
+    border-color:var(--teal);
+  }
+  input.code-input{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:2px;
+    font-weight:600;
+  }
 
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(60px, 40px) scale(1.1); }
-    }
+  button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-icon{
+    flex:none;
+    width:42px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--ink-soft);
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn-icon:hover{ background:var(--line); color:var(--ink); }
 
-    /* 3D Glass Container */
-    .container {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 440px;
-      padding: 2.5rem;
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 
-        0 30px 60px -12px rgba(0, 0, 0, 0.56),
-        0 18px 36px -18px rgba(0, 0, 0, 0.72),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      transform-style: preserve-3d;
-      transition: transform 0.2s ease-out, max-width 0.2s ease-out;
-    }
+  .btn-generate{
+    flex:none;
+    padding:0 16px;
+    background:var(--teal);
+    color:#F7F5F0;
+    border-radius:3px;
+    font-size:14px;
+    font-weight:500;
+    white-space:nowrap;
+    transition:background .15s ease;
+  }
+  .btn-generate:hover{ background:var(--teal-deep); }
 
-    @media (min-width: 860px) {
-      .container {
-        max-width: 840px;
-      }
-    }
+  .duration-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .duration-btn{
+    padding:9px 13px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-chip);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:13.5px;
+    font-weight:500;
+    transition:all .15s ease;
+    flex:1 1 auto;
+    min-width:64px;
+    text-align:center;
+  }
+  .duration-btn:hover{ border-color:var(--teal); }
+  .duration-btn.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#F7F5F0;
+  }
 
-    .header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+  .meta-line{
+    display:flex;
+    justify-content:space-between;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding-top:14px;
+    margin-top:4px;
+    border-top:1px solid var(--line);
+  }
+  .meta-line strong{ color:var(--ink); font-weight:600; }
 
-    .header h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.4rem;
-    }
+  .copy-cta{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    background:var(--amber);
+    color:#241A0A;
+    font-size:15px;
+    font-weight:600;
+    border-radius:3px;
+    transition:background .15s ease;
+  }
+  .copy-cta:hover{ background:var(--amber-deep); }
+  .copy-cta.copied{ background:var(--teal); color:#F7F5F0; }
 
-    .header p {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-    }
+  .toast{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:10px;
+    min-height:16px;
+  }
+  .toast.err{ color:var(--danger); }
 
-    .form-group {
-      margin-bottom: 1.25rem;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    input {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: #fff;
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.25s ease;
-    }
-
-    input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px var(--primary-glow);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(1);
-      cursor: pointer;
-    }
-
-    button {
-      width: 100%;
-      padding: 0.95rem;
-      margin-top: 0.5rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 20px var(--primary-glow);
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
-    }
-
-    button:active {
-      transform: translateY(0);
-    }
-
-    /* Result Display Card */
-    .result-box {
-      margin-top: 1.75rem;
-      padding: 1.25rem;
-      background: rgba(10, 15, 28, 0.7);
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      text-align: center;
-      display: none;
-      animation: fadeIn 0.4s ease-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .result-title {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-
-    .code-display {
-      font-family: 'JetBrains Mono', monospace, monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #38bdf8;
-      letter-spacing: 0.08em;
-      word-break: break-all;
-      margin-bottom: 0.75rem;
-      text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-    }
-
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      padding: 0.4rem 0.8rem;
-      font-size: 0.75rem;
-      margin-top: 0;
-      box-shadow: none;
-      width: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: none;
-      transform: none;
-    }
-
-    .error-text {
-      color: #f87171;
-      font-size: 0.8rem;
-      margin-top: 0.5rem;
-      display: none;
-      text-align: center;
-    }
-
-    .panels {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .panel {
-      min-width: 0;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      background: var(--border);
-      height: 1px;
-    }
-
-    .divider span {
-      padding: 0 0.75rem;
-      white-space: nowrap;
-    }
-
-    @media (min-width: 860px) {
-      .panels {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 2rem;
-      }
-
-      .panel {
-        flex: 1;
-      }
-
-      .divider {
-        flex-direction: column;
-      }
-
-      .divider::before,
-      .divider::after {
-        width: 1px;
-        height: auto;
-      }
-
-      .divider span {
-        padding: 0.75rem 0;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-      }
-    }
-
-    .decode-result {
-      margin-top: 1.25rem;
-      padding: 1.25rem;
-      background: rgba(10, 15, 28, 0.7);
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      display: none;
-      animation: fadeIn 0.4s ease-out forwards;
-    }
-
-    .decode-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-    }
-
-    .decode-row + .decode-row {
-      border-top: 1px solid var(--border);
-    }
-
-    .decode-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .decode-value {
-      font-family: 'JetBrains Mono', monospace, monospace;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #38bdf8;
-    }
-
-    .decode-value.expired {
-      color: #f87171;
-    }
-  </style>
+  /* Preview email card */
+  .preview-head{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .mail{
+    background:#ffffff;
+    color:#25231F;
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .mail-meta{
+    padding:14px 20px;
+    border-bottom:1px solid #ECE8DD;
+    font-size:12.5px;
+    color:#8A8575;
+  }
+  .mail-meta .subj{
+    font-size:14.5px;
+    color:#25231F;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .mail-body{
+    padding:26px 24px 28px;
+    font-size:14.5px;
+    line-height:1.65;
+  }
+  .mail-body p{ margin:0 0 14px; }
+  .code-chip{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:3px;
+    background:#F1EEE5;
+    border:1px dashed #C7BFA6;
+    color:var(--teal-deep, #0B3733);
+    padding:12px 20px;
+    border-radius:6px;
+    margin:6px 0 16px;
+  }
+  .mail-foot{
+    font-size:12px;
+    color:#9C9686;
+    border-top:1px solid #ECE8DD;
+    padding-top:14px;
+    margin-top:6px;
+  }
+</style>
 </head>
 <body>
+<div class="wrap">
 
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <header class="page-head">
+    <h1>Promo code generator</h1>
+    <p class="sub">Create a temporary Premium promo code for a user, and copy the ready-to-send email in one click.</p>
+  </header>
 
-  <div class="container" id="card">
-    <div class="header">
-      <h1>Promo Generator</h1>
-      <p>Issue an encrypted unlock key for a user</p>
+  <div class="grid">
+    <div>
+      <div class="panel">
+        <label class="field-label" for="userId">User ID</label>
+        <div class="field-row">
+          <input type="text" id="userId" placeholder="e.g. usr_4821">
+          <button class="btn-icon" id="pasteUser" title="Paste from clipboard" aria-label="Paste user ID">⎘</button>
+        </div>
+        <p style="font-size:12px;color:var(--ink-soft);margin:-14px 0 20px;">Required — at least 4 characters. The code is always generated from this, never from the email.</p>
+
+        <label class="field-label" for="userEmail">Email <span style="font-weight:400;">(optional — used only in the "To" line)</span></label>
+        <div class="field-row">
+          <input type="text" id="userEmail" placeholder="e.g. jordan@example.com">
+          <button class="btn-icon" id="pasteEmail" title="Paste from clipboard" aria-label="Paste email">⎘</button>
+        </div>
+
+        <label class="field-label">Promo length</label>
+        <div class="field-row" style="margin-bottom:12px;">
+          <div class="duration-row" id="durationRow"></div>
+        </div>
+        <div class="field-row" style="align-items:center; gap:10px;">
+          <span style="font-size:12.5px;color:var(--ink-soft);white-space:nowrap;">or pick a date</span>
+          <input type="date" id="customEndDate">
+        </div>
+
+        <label class="field-label" for="promoCode">Promo code</label>
+        <div class="field-row">
+          <input type="text" id="promoCode" class="code-input" placeholder="e.g. M7F3K09QZ">
+          <button class="btn-icon" id="pastePromo" title="Paste from clipboard" aria-label="Paste promo code">⎘</button>
+          <button class="btn-generate" id="genCode">Generate</button>
+        </div>
+
+        <div class="meta-line">
+          <span>Starts</span>
+          <strong id="startDateOut">—</strong>
+        </div>
+        <div class="meta-line">
+          <span>Expires</span>
+          <strong id="endDateOut">—</strong>
+        </div>
+
+        <button class="copy-cta" id="copyEmail">Copy with email</button>
+        <div class="toast" id="toast"></div>
+      </div>
     </div>
 
-    <div class="panels">
+    <div>
       <div class="panel">
-        <form id="promoForm">
-          <div class="form-group">
-            <label for="userId">User ID</label>
-            <input type="text" id="userId" placeholder="e.g., user_987xYz9" required minlength="4">
+        <div class="preview-head">This is exactly what gets copied</div>
+        <div class="mail">
+          <div class="mail-meta">
+            <div class="subj" id="pvSubject">Your gift: 1 month of Premium, on us</div>
+            To: <span id="pvTo">user@example.com</span>
           </div>
-
-          <div class="form-group">
-            <label for="endDate">Expiry Date</label>
-            <input type="date" id="endDate" required>
-          </div>
-
-          <button type="submit">Generate Promo Code</button>
-          <div class="error-text" id="error"></div>
-        </form>
-
-        <div class="result-box" id="resultBox">
-          <div class="result-title">Generated Promo Code</div>
-          <div class="code-display" id="codeOutput">---</div>
-          <button class="copy-btn" id="copyBtn" type="button">
-            📋 Copy to Clipboard
-          </button>
-        </div>
-      </div>
-
-      <div class="divider"><span>Decode a code</span></div>
-
-      <div class="panel">
-        <form id="decodeForm">
-          <div class="form-group">
-            <label for="codeInput">Promo Code</label>
-            <input type="text" id="codeInput" placeholder="e.g., M0AQ82FVNT" required>
-          </div>
-
-          <button type="submit">Decode Code</button>
-          <div class="error-text" id="decodeError"></div>
-        </form>
-
-        <div class="decode-result" id="decodeResult">
-          <div class="decode-row">
-            <span class="decode-label">User ID (last 4)</span>
-            <span class="decode-value" id="decodedLast4">---</span>
-          </div>
-          <div class="decode-row">
-            <span class="decode-label">Expiry Date</span>
-            <span class="decode-value" id="decodedEnd">---</span>
-          </div>
-          <div class="decode-row">
-            <span class="decode-label">Status</span>
-            <span class="decode-value" id="decodedStatus">---</span>
+          <div class="mail-body">
+            <p>Hi,</p>
+            <p id="pvIntro">We've set you up with <strong>1 month of Premium</strong>, completely free. Use the code below to activate it any time before <strong>—</strong>:</p>
+            <div class="code-chip" id="pvCode">------</div>
+            <p id="pvOutro">Once it's active, you'll have full Premium access for 1 month — no charge, no card required.</p>
+            <p>You can upgrade to a paid Premium plan at any point, whether your free period is still running or has already ended — whatever works for you.</p>
+            <div class="mail-foot">If you weren't expecting this, feel free to ignore it — the code won't do anything unless it's activated in the app.</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    // Configuration matching PromoService.dart
-    const PREFIX = 'M';
-    const XOR_MASK = 0x1A2B3C4D5n; // must fit within 45 bits (21 + 14 + 10) — BigInt to match Dart's int
-    const PAYLOAD_LEN = 9; // base36 chars needed for 45 bits
-    const MAX_DAYS = 16383; // 14 bits: covers till 2068-11-08 (well past 2050)
-    const CHECKSUM_MASK = 0x3FFn; // 10 bits
-    const CHECKSUM_SALT = 0x9E3779B1n; // arbitrary odd constant (mixing salt)
-    const EPOCH = new Date(2024, 0, 1); // Jan 1, 2024 (local, matches Dart's DateTime(2024, 1, 1))
+  <div class="panel" style="margin-top:20px;">
+    <label class="field-label" for="checkCode">Check a code</label>
+    <div class="field-row">
+      <input type="text" id="checkCode" class="code-input" placeholder="Paste a code to inspect it">
+      <button class="btn-icon" id="pasteCheck" title="Paste from clipboard" aria-label="Paste code to check">⎘</button>
+      <button class="btn-generate" id="checkCodeBtn">Check</button>
+    </div>
+    <div id="checkResult" style="display:none;">
+      <div class="meta-line"><span>User ID ends in</span><strong id="checkLast4">—</strong></div>
+      <div class="meta-line"><span>Expires</span><strong id="checkEnd">—</strong></div>
+      <div class="meta-line"><span>Status</span><strong id="checkStatus">—</strong></div>
+    </div>
+    <div class="toast" id="checkToast"></div>
+  </div>
 
-    // Interactive 3D Card Tilt Effect
-    const card = document.getElementById('card');
-    document.addEventListener('mousemove', (e) => {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-    });
+</div>
 
-    // Helper: parse a base36 string into a BigInt (mirrors Dart's int.parse(str, radix: 36))
-    function base36ToBigInt(str) {
-      const digits = '0123456789abcdefghijklmnopqrstuvwxyz';
-      let result = 0n;
-      for (const ch of str.toLowerCase()) {
-        const idx = digits.indexOf(ch);
-        if (idx === -1) {
-          throw new Error(`Invalid base36 character: ${ch}`);
-        }
-        result = result * 36n + BigInt(idx);
-      }
-      return result;
+<script>
+(function(){
+  const DURATIONS = [
+    {label:'1 mo', months:1},
+    {label:'2 mo', months:2},
+    {label:'3 mo', months:3},
+    {label:'6 mo', months:6},
+    {label:'1 yr', months:12},
+    {label:'2 yr', months:24},
+    {label:'5 yr', months:60},
+  ];
+
+  const durationRow = document.getElementById('durationRow');
+  const userId = document.getElementById('userId');
+  const userEmail = document.getElementById('userEmail');
+  const promoCode = document.getElementById('promoCode');
+  const customEndDate = document.getElementById('customEndDate');
+  const startDateOut = document.getElementById('startDateOut');
+  const endDateOut = document.getElementById('endDateOut');
+  const toast = document.getElementById('toast');
+
+  function toISODate(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function addMonths(date, months){
+    const d = new Date(date.getTime());
+    d.setMonth(d.getMonth() + months);
+    return d;
+  }
+
+  function sameDay(a, b){
+    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+  }
+
+  const minEnd = addMonths(new Date(), 1); // shortest allowed promo length
+  let currentEnd = new Date(minEnd.getTime());
+
+  // ---- Code generation, matching PromoService.dart (no separators, base36) ----
+  const PREFIX = 'M';
+  const XOR_MASK = 0x1A2B3C4D5n; // must fit within 45 bits (21 + 14 + 10)
+  const PAYLOAD_LEN = 9; // base36 chars needed for 45 bits
+  const MAX_DAYS = 16383; // 14 bits
+  const CHECKSUM_MASK = 0x3FFn; // 10 bits
+  const CHECKSUM_SALT = 0x9E3779B1n;
+  const EPOCH = new Date(2024, 0, 1);
+
+  function base36ToBigInt(str){
+    const digits = '0123456789abcdefghijklmnopqrstuvwxyz';
+    let result = 0n;
+    for (const ch of str.toLowerCase()){
+      const idx = digits.indexOf(ch);
+      if (idx === -1) throw new Error(`Invalid base36 character: ${ch}`);
+      result = result * 36n + BigInt(idx);
     }
+    return result;
+  }
 
-    // Derives a 10-bit checksum from last4Val + days (mirrors Dart's _checksum()).
-    // Used to detect tampering: if any character of the code is edited, the
-    // decoded last4/days almost certainly won't match the embedded checksum.
-    function checksum(last4Val, days) {
-      let h = (last4Val * 2654435761n) ^ (days * 40503n) ^ CHECKSUM_SALT;
-      h ^= (h >> 15n);
-      return h & CHECKSUM_MASK;
+  function checksum(last4Val, days){
+    let h = (last4Val * 2654435761n) ^ (days * 40503n) ^ CHECKSUM_SALT;
+    h ^= (h >> 15n);
+    return h & CHECKSUM_MASK;
+  }
+
+  function generateCode(userIdRaw, expiryDate){
+    const userId = userIdRaw.trim();
+    if (userId.length < 4) throw new Error('User ID must be at least 4 characters.');
+
+    const last4 = userId.substring(userId.length - 4).toUpperCase();
+    const diffTime = expiryDate.getTime() - EPOCH.getTime();
+    const daysNum = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    if (daysNum < 0 || daysNum > MAX_DAYS) throw new Error('Expiry date is out of supported range.');
+
+    const last4Val = base36ToBigInt(last4);
+    const days = BigInt(daysNum);
+    const check = checksum(last4Val, days);
+
+    let packed = (last4Val << 24n) | (days << 10n) | check;
+    packed ^= XOR_MASK;
+
+    const payload = packed.toString(36).padStart(PAYLOAD_LEN, '0').toUpperCase();
+    return PREFIX + payload; // no dashes — single alphanumeric string
+  }
+
+  function decodeCode(codeRaw){
+    const code = codeRaw.trim();
+    if (!code || code[0].toUpperCase() !== PREFIX) throw new Error("Doesn't look like one of our codes.");
+
+    const payload = code.substring(PREFIX.length);
+    if (payload.length !== PAYLOAD_LEN) throw new Error('Malformed code.');
+
+    let packed = base36ToBigInt(payload);
+    packed ^= XOR_MASK;
+
+    const check = packed & CHECKSUM_MASK;
+    const days = (packed >> 10n) & 0x3FFFn;
+    const last4Val = packed >> 24n;
+
+    if (checksum(last4Val, days) !== check) throw new Error('Invalid code — tampered or corrupted.');
+
+    const last4 = last4Val.toString(36).toUpperCase().padStart(4, '0');
+    const end = new Date(EPOCH.getTime() + Number(days) * 24 * 60 * 60 * 1000);
+    return { last4, end };
+  }
+
+  function fmtDate(d){
+    return d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+  }
+
+  function durationLabel(months){
+    if (months % 12 === 0) {
+      const y = months / 12;
+      return y === 1 ? '1 year' : (y + ' years');
     }
+    return months === 1 ? '1 month' : (months + ' months');
+  }
 
-    // Generator matching PromoService.generateCode()
-    // Uses BigInt throughout since the packed value reaches 45 bits, which
-    // exceeds JS's native 32-bit bitwise operator range, and the checksum's
-    // intermediate multiplication is near the edge of Number's safe range.
-    function generateCode(userId, expiryDate) {
-      if (userId.length < 4) {
-        throw new Error('userId must be at least 4 characters');
-      }
-
-      const last4 = userId.substring(userId.length - 4).toUpperCase();
-
-      // Calculate days difference from epoch
-      const diffTime = expiryDate.getTime() - EPOCH.getTime();
-      const daysNum = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-      if (daysNum < 0 || daysNum > MAX_DAYS) {
-        throw new Error(`Expiry date must be between Jan 1, 2024 and day ${MAX_DAYS} after that (~2068)`);
-      }
-
-      const last4Val = base36ToBigInt(last4); // 0..36^4-1, fits 21 bits
-      const days = BigInt(daysNum);
-      const check = checksum(last4Val, days); // 10 bits
-
-      let packed = (last4Val << 24n) | (days << 10n) | check; // 21+14+10 = 45 bits
-      packed ^= XOR_MASK;
-
-      const payload = packed.toString(36).padStart(PAYLOAD_LEN, '0').toUpperCase();
-      return PREFIX + payload;
+  function matchedPresetLabel(){
+    const today = new Date();
+    for (const d of DURATIONS){
+      if (sameDay(addMonths(today, d.months), currentEnd)) return durationLabel(d.months);
     }
+    return null;
+  }
 
-    // Decoder matching PromoService.decode() — useful for verifying codes client-side too
-    function decodeCode(code) {
-      if (!code || code[0].toUpperCase() !== PREFIX) {
-        throw new Error('Invalid prefix');
-      }
-
-      const payload = code.substring(PREFIX.length);
-      if (payload.length !== PAYLOAD_LEN) {
-        throw new Error('Malformed code');
-      }
-
-      let packed = base36ToBigInt(payload);
-      packed ^= XOR_MASK;
-
-      const check = packed & CHECKSUM_MASK; // low 10 bits
-      const days = (packed >> 10n) & 0x3FFFn; // next 14 bits
-      const last4Val = packed >> 24n; // remaining bits
-
-      if (checksum(last4Val, days) !== check) {
-        throw new Error('Invalid code (tampered or corrupted)');
-      }
-
-      const last4 = last4Val.toString(36).toUpperCase().padStart(4, '0');
-      const end = new Date(EPOCH.getTime() + Number(days) * 24 * 60 * 60 * 1000);
-
-      return { last4, end };
-    }
-
-    // DOM Interaction Handlers
-    const form = document.getElementById('promoForm');
-    const resultBox = document.getElementById('resultBox');
-    const codeOutput = document.getElementById('codeOutput');
-    const copyBtn = document.getElementById('copyBtn');
-    const errorDiv = document.getElementById('error');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      errorDiv.style.display = 'none';
-
-      const userId = document.getElementById('userId').value.trim();
-      const endDateVal = document.getElementById('endDate').value;
-
-      if (!endDateVal) return;
-
-      try {
-        // Build the date from local parts (input value is "YYYY-MM-DD").
-        // new Date(string) parses as UTC, which can shift by a day vs. the
-        // local EPOCH depending on the browser's timezone offset.
-        const [y, m, d] = endDateVal.split('-').map(Number);
-        const endDate = new Date(y, m - 1, d);
-        const code = generateCode(userId, endDate);
-
-        codeOutput.textContent = code;
-        resultBox.style.display = 'block';
-      } catch (err) {
-        errorDiv.textContent = err.message;
-        errorDiv.style.display = 'block';
-        resultBox.style.display = 'none';
-      }
-    });
-
-    copyBtn.addEventListener('click', () => {
-      const code = codeOutput.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        copyBtn.textContent = '✓ Copied!';
-        setTimeout(() => copyBtn.textContent = '📋 Copy to Clipboard', 2000);
+  function buildDurationButtons(){
+    DURATIONS.forEach((d, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'duration-btn' + (i===0 ? ' active' : '');
+      btn.type = 'button';
+      btn.textContent = d.label;
+      btn.dataset.months = d.months;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.duration-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        currentEnd = addMonths(new Date(), d.months);
+        customEndDate.value = toISODate(currentEnd);
+        render();
       });
+      durationRow.appendChild(btn);
     });
+  }
 
-    // Decode form handler
-    const decodeForm = document.getElementById('decodeForm');
-    const decodeResult = document.getElementById('decodeResult');
-    const decodedLast4 = document.getElementById('decodedLast4');
-    const decodedEnd = document.getElementById('decodedEnd');
-    const decodedStatus = document.getElementById('decodedStatus');
-    const decodeErrorDiv = document.getElementById('decodeError');
+  customEndDate.min = toISODate(minEnd);
+  customEndDate.value = toISODate(currentEnd);
+  customEndDate.addEventListener('change', () => {
+    if (!customEndDate.value) return;
+    const [y, m, day] = customEndDate.value.split('-').map(Number);
+    const picked = new Date(y, m - 1, day);
+    const minEndDay = new Date(minEnd.getFullYear(), minEnd.getMonth(), minEnd.getDate());
+    if (picked < minEndDay){
+      showToast('Expiry must be at least 1 month from today.', true);
+      currentEnd = new Date(minEnd.getTime());
+      customEndDate.value = toISODate(currentEnd);
+    } else {
+      currentEnd = picked;
+    }
+    document.querySelectorAll('.duration-btn').forEach(b=>b.classList.remove('active'));
+    render();
+  });
 
-    decodeForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      decodeErrorDiv.style.display = 'none';
-      decodeResult.style.display = 'none';
+  function render(){
+    const start = new Date();
+    startDateOut.textContent = fmtDate(start);
+    endDateOut.textContent = fmtDate(currentEnd);
 
-      const rawCode = document.getElementById('codeInput').value.trim();
-      if (!rawCode) return;
+    const email = userEmail.value.trim();
+    const code = promoCode.value.trim();
+    const preset = matchedPresetLabel();
+    const endStr = fmtDate(currentEnd);
 
+    document.getElementById('pvTo').textContent = email || '(no email set)';
+    document.getElementById('pvSubject').textContent = preset
+      ? ('Your gift: ' + preset + ' of Premium, on us')
+      : ('Your gift: Premium until ' + endStr);
+    document.getElementById('pvIntro').innerHTML = preset
+      ? `We've set you up with <strong>${preset} of Premium</strong>, completely free. Use the code below to activate it any time before <strong>${endStr}</strong>:`
+      : `We've set you up with Premium, completely free until <strong>${endStr}</strong>. Use the code below to activate it:`;
+    document.getElementById('pvOutro').textContent = preset
+      ? `Once it's active, you'll have full Premium access for ${preset} — no charge, no card required.`
+      : `Once it's active, you'll have full Premium access through ${endStr} — no charge, no card required.`;
+    document.getElementById('pvCode').textContent = code || '------';
+  }
+
+  function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  async function copyText(text){
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch(e){
+      return fallbackCopy(text);
+    }
+  }
+
+  async function pasteInto(input){
+    try {
+      const text = await navigator.clipboard.readText();
+      input.value = text.trim();
+      render();
+      showToast('Pasted.');
+    } catch(e){
+      showToast('Clipboard access blocked here — use Ctrl+V / Cmd+V in the field instead.', true);
+    }
+  }
+
+  function showToast(msg, isErr){
+    toast.textContent = msg;
+    toast.className = 'toast' + (isErr ? ' err' : '');
+    if (!isErr){
+      setTimeout(()=>{ if(toast.textContent===msg) toast.textContent=''; }, 2600);
+    }
+  }
+
+  document.getElementById('pasteUser').addEventListener('click', () => pasteInto(userId));
+  document.getElementById('pasteEmail').addEventListener('click', () => pasteInto(userEmail));
+  document.getElementById('pastePromo').addEventListener('click', () => pasteInto(promoCode));
+  document.getElementById('genCode').addEventListener('click', () => {
+    try {
+      promoCode.value = generateCode(userId.value, currentEnd);
+      render();
+      toast.className = 'toast';
+      toast.textContent = '';
+    } catch(e){
+      showToast(e.message, true);
+    }
+  });
+  userId.addEventListener('input', render);
+  userEmail.addEventListener('input', render);
+  promoCode.addEventListener('input', render);
+
+  document.getElementById('copyEmail').addEventListener('click', async () => {
+    if (!promoCode.value.trim()){
       try {
-        const { last4, end } = decodeCode(rawCode);
-        const isExpired = new Date() >= end;
-
-        decodedLast4.textContent = last4;
-        decodedEnd.textContent = end.toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        });
-        decodedStatus.textContent = isExpired ? 'Expired' : 'Active';
-        decodedStatus.classList.toggle('expired', isExpired);
-
-        decodeResult.style.display = 'block';
-      } catch (err) {
-        decodeErrorDiv.textContent = err.message;
-        decodeErrorDiv.style.display = 'block';
+        promoCode.value = generateCode(userId.value, currentEnd);
+        render();
+      } catch(e){
+        showToast(e.message, true);
+        return;
       }
-    });
-  </script>
+    }
+    const preset = matchedPresetLabel();
+    const endStr = fmtDate(currentEnd);
+    const code = promoCode.value.trim();
+    const subject = preset ? ('Your gift: ' + preset + ' of Premium, on us') : ('Your gift: Premium until ' + endStr);
+
+    const introPlain = preset
+      ? `We've set you up with ${preset} of Premium, completely free. Use the code below to activate it any time before ${endStr}:`
+      : `We've set you up with Premium, completely free until ${endStr}. Use the code below to activate it:`;
+    const outroPlain = preset
+      ? `Once it's active, you'll have full Premium access for ${preset} — no charge, no card required.`
+      : `Once it's active, you'll have full Premium access through ${endStr} — no charge, no card required.`;
+
+    const plain =
+`Subject: ${subject}
+
+Hi,
+
+${introPlain}
+
+  ${code}
+
+${outroPlain}
+
+You can upgrade to a paid Premium plan at any point, whether your free period is still running or has already ended — whatever works for you.
+
+If you weren't expecting this, feel free to ignore it — the code won't do anything unless it's activated in the app.`;
+
+    const introHtml = preset
+      ? `We've set you up with <strong>${preset} of Premium</strong>, completely free. Use the code below to activate it any time before <strong>${endStr}</strong>:`
+      : `We've set you up with Premium, completely free until <strong>${endStr}</strong>. Use the code below to activate it:`;
+    const outroHtml = preset
+      ? `Once it's active, you'll have full Premium access for ${preset} — no charge, no card required.`
+      : `Once it's active, you'll have full Premium access through ${endStr} — no charge, no card required.`;
+
+    const html =
+`<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;color:#25231F;">
+<p>Hi,</p>
+<p>${introHtml}</p>
+<p style="font-family:monospace;font-size:20px;letter-spacing:2px;background:#F1EEE5;border:1px dashed #C7BFA6;display:inline-block;padding:10px 18px;border-radius:6px;">${code}</p>
+<p>${outroHtml}</p>
+<p>You can upgrade to a paid Premium plan at any point, whether your free period is still running or has already ended — whatever works for you.</p>
+<p style="font-size:12px;color:#9C9686;">If you weren't expecting this, feel free to ignore it — the code won't do anything unless it's activated in the app.</p>
+</div>`;
+
+    let copied = false;
+    try {
+      if (window.ClipboardItem){
+        const item = new ClipboardItem({
+          'text/plain': new Blob([plain], {type:'text/plain'}),
+          'text/html': new Blob([html], {type:'text/html'})
+        });
+        await navigator.clipboard.write([item]);
+        copied = true;
+      }
+    } catch(e){ copied = false; }
+
+    if (!copied){
+      copied = await copyText(plain);
+    }
+
+    const btn = document.getElementById('copyEmail');
+    if (copied){
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      showToast('Email copied — paste it into your mail client.');
+      setTimeout(()=>{ btn.textContent = 'Copy with email'; btn.classList.remove('copied'); }, 2200);
+    } else {
+      showToast('Copy failed — select the code manually.', true);
+    }
+  });
+
+  document.getElementById('pasteCheck').addEventListener('click', () => pasteInto(document.getElementById('checkCode')));
+
+  document.getElementById('checkCodeBtn').addEventListener('click', () => {
+    const input = document.getElementById('checkCode');
+    const resultBox = document.getElementById('checkResult');
+    const checkToast = document.getElementById('checkToast');
+    try {
+      const { last4, end } = decodeCode(input.value);
+      const isExpired = new Date() >= end;
+      document.getElementById('checkLast4').textContent = last4;
+      document.getElementById('checkEnd').textContent = fmtDate(end);
+      document.getElementById('checkStatus').textContent = isExpired ? 'Expired' : 'Active';
+      resultBox.style.display = 'block';
+      checkToast.textContent = '';
+      checkToast.className = 'toast';
+    } catch(e){
+      resultBox.style.display = 'none';
+      checkToast.textContent = e.message;
+      checkToast.className = 'toast err';
+    }
+  });
+
+  buildDurationButtons();
+  render();
+})();
+</script>
 </body>
 </html>
